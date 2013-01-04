@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/EdgeDetector.cpp \
 ../src/MovieTestHarness.cpp 
 
 OBJS += \
+./src/EdgeDetector.o \
 ./src/MovieTestHarness.o 
 
 CPP_DEPS += \
+./src/EdgeDetector.d \
 ./src/MovieTestHarness.d 
 
 

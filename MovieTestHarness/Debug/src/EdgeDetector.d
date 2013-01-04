@@ -1,16 +1,16 @@
-src/MovieTestHarness.d src/MovieTestHarness.o:  \
- ../src/MovieTestHarness.cpp /opt/local/include/opencv/cv.h \
-  /opt/local/include/opencv2/core/core_c.h \
-  /opt/local/include/opencv2/core/types_c.h \
+src/EdgeDetector.d src/EdgeDetector.o: ../src/EdgeDetector.cpp \
+  /opt/local/include/opencv2/imgproc/imgproc.hpp \
   /opt/local/include/opencv2/core/core.hpp \
+  /opt/local/include/opencv2/core/types_c.h \
   /opt/local/include/opencv2/core/version.hpp \
   /opt/local/include/opencv2/core/operations.hpp \
   /opt/local/include/opencv2/core/mat.hpp \
-  /opt/local/include/opencv2/imgproc/imgproc_c.h \
-  /opt/local/include/opencv2/core/core_c.h \
   /opt/local/include/opencv2/imgproc/types_c.h \
-  /opt/local/include/opencv2/imgproc/imgproc.hpp \
+  /opt/local/include/opencv2/core/core_c.h ../src/EdgeDetector.h \
+  /opt/local/include/opencv/cv.h /opt/local/include/opencv2/core/core_c.h \
   /opt/local/include/opencv2/core/core.hpp \
+  /opt/local/include/opencv2/imgproc/imgproc_c.h \
+  /opt/local/include/opencv2/imgproc/imgproc.hpp \
   /opt/local/include/opencv2/video/tracking.hpp \
   /opt/local/include/opencv2/core/core.hpp \
   /opt/local/include/opencv2/imgproc/imgproc.hpp \
@@ -60,21 +60,13 @@ src/MovieTestHarness.d src/MovieTestHarness.o:  \
   /opt/local/include/opencv2/legacy/compat.hpp \
   /opt/local/include/opencv2/core/core_c.h \
   /opt/local/include/opencv2/imgproc/types_c.h \
-  /opt/local/include/opencv2/core/internal.hpp \
-  /opt/local/include/opencv/highgui.h \
-  /opt/local/include/opencv2/highgui/highgui_c.h \
-  /opt/local/include/opencv2/core/core_c.h \
-  /opt/local/include/opencv2/highgui/highgui.hpp \
-  /opt/local/include/opencv2/core/core.hpp \
-  /opt/local/include/opencv2/highgui/highgui_c.h ../src/EdgeDetector.h
+  /opt/local/include/opencv2/core/internal.hpp
 
-/opt/local/include/opencv/cv.h:
-
-/opt/local/include/opencv2/core/core_c.h:
-
-/opt/local/include/opencv2/core/types_c.h:
+/opt/local/include/opencv2/imgproc/imgproc.hpp:
 
 /opt/local/include/opencv2/core/core.hpp:
+
+/opt/local/include/opencv2/core/types_c.h:
 
 /opt/local/include/opencv2/core/version.hpp:
 
@@ -82,15 +74,21 @@ src/MovieTestHarness.d src/MovieTestHarness.o:  \
 
 /opt/local/include/opencv2/core/mat.hpp:
 
-/opt/local/include/opencv2/imgproc/imgproc_c.h:
+/opt/local/include/opencv2/imgproc/types_c.h:
 
 /opt/local/include/opencv2/core/core_c.h:
 
-/opt/local/include/opencv2/imgproc/types_c.h:
+../src/EdgeDetector.h:
 
-/opt/local/include/opencv2/imgproc/imgproc.hpp:
+/opt/local/include/opencv/cv.h:
+
+/opt/local/include/opencv2/core/core_c.h:
 
 /opt/local/include/opencv2/core/core.hpp:
+
+/opt/local/include/opencv2/imgproc/imgproc_c.h:
+
+/opt/local/include/opencv2/imgproc/imgproc.hpp:
 
 /opt/local/include/opencv2/video/tracking.hpp:
 
@@ -191,17 +189,3 @@ src/MovieTestHarness.d src/MovieTestHarness.o:  \
 /opt/local/include/opencv2/imgproc/types_c.h:
 
 /opt/local/include/opencv2/core/internal.hpp:
-
-/opt/local/include/opencv/highgui.h:
-
-/opt/local/include/opencv2/highgui/highgui_c.h:
-
-/opt/local/include/opencv2/core/core_c.h:
-
-/opt/local/include/opencv2/highgui/highgui.hpp:
-
-/opt/local/include/opencv2/core/core.hpp:
-
-/opt/local/include/opencv2/highgui/highgui_c.h:
-
-../src/EdgeDetector.h:

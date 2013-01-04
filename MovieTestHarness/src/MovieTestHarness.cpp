@@ -15,6 +15,8 @@
 #include <cv.h>
 #include <highgui.h>
 
+#include "EdgeDetector.h"
+
 using namespace std;
 using namespace cv;
 
@@ -66,7 +68,7 @@ int main(int argc, char** argv) {
 		// cout << "Frame " << frameNum << " | ";
 		// cout << flush;
 		imshow(ORIGINAL_MOVIE, frame);
-		imshow(PROCESSED_MOVIE, frame);
+		imshow(PROCESSED_MOVIE, EdgeDetector(frame));
 
 		c = (char) cvWaitKey(delay);
 		if (c == 27) {
