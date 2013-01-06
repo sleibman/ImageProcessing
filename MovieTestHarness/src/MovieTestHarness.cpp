@@ -86,11 +86,11 @@ int main(int argc, char** argv) {
 	}
 
 	const char* ORIGINAL_MOVIE = "Original Movie";
-	const char* PROCESSED_MOVIE = "Processed Movie";
+	//const char* PROCESSED_MOVIE = "Processed Movie";
 	namedWindow(ORIGINAL_MOVIE, CV_WINDOW_AUTOSIZE);
-	namedWindow(PROCESSED_MOVIE, CV_WINDOW_AUTOSIZE);
+	//namedWindow(PROCESSED_MOVIE, CV_WINDOW_AUTOSIZE);
 	cvMoveWindow(ORIGINAL_MOVIE, 0, 0);
-	cvMoveWindow(PROCESSED_MOVIE, 0, inputMovieSize.height);
+	//cvMoveWindow(PROCESSED_MOVIE, 0, inputMovieSize.height);
 
 	cout << "Width=" << inputMovieSize.width << "  Height="
 			<< inputMovieSize.height << "  Frame count="
@@ -123,23 +123,23 @@ int main(int argc, char** argv) {
 		// cout << "Frame " << frameNum << " | ";
 		// cout << flush;
 		processedFrame = EdgeDetector(frame);
-		imshow(ORIGINAL_MOVIE, frame);
-		imshow(PROCESSED_MOVIE, processedFrame);
+		//imshow(ORIGINAL_MOVIE, frame);
+		//imshow(PROCESSED_MOVIE, processedFrame);
 		if (writeOutMovie) {
 			if (splitScreen) {
-				// Yikes. Not sure how to do something as simple as append 2 matrices in OpenCV.
-				// For now, reshaping into a 1xN vector, and using row assignment, then reshaping back.
-//				Mat f = frame.reshape(0, 1); // # of channels remains unchanged, # of rows => 1
-//				Mat p = processedFrame.reshape(0, 1);
-//				Mat mergedFrame(2, f.cols, f.depth());
-//				f.row(0).copyTo(mergedFrame.row(0));
-//				p.row(0).copyTo(mergedFrame.row(1));
-//				Mat mf = mergedFrame.reshape(0, outputMovieSize.height);
-				Mat mergedFrame(outputMovieSize.height, outputMovieSize.width, frame.depth());
-				Mat tmpFrame = mergedFrame(Rect(0,0,frame.rows,frame.cols));
-				frame.copyTo(tmpFrame);
-				Mat tmpProcessedFrame = mergedFrame(Rect(frame.rows,0,processedFrame.rows,processedFrame.cols));
-				processedFrame.copyTo(tmpProcessedFrame);
+				// Yikes. Concatenating 2 matrices in OpenCV is not anywhere near as simple as it should be.
+				// The following code is just a vertcat. Matlab equivalent: mergedFrame = [frame ; processedFrame]
+				// Caution: Note inconsistency of row,col ordering in Rect().
+//				Mat mergedFrame(outputMovieSize.height, outputMovieSize.width, frame.depth());
+//				Mat tmpFrame = mergedFrame(Rect(0, 0, frame.cols, frame.rows));
+//				frame.copyTo(tmpFrame);
+//				Mat tmpProcessedFrame = mergedFrame(Rect(0, frame.rows,processedFrame.cols, processedFrame.rows));
+//				processedFrame.copyTo(tmpProcessedFrame);
+
+				// Found undocumented vconcat and hconcat functions. Still curious why the above didn't quite work.
+				Mat mergedFrame;
+				vconcat(frame, processedFrame, mergedFrame);
+				imshow(ORIGINAL_MOVIE, mergedFrame);
 				outputMovie << mergedFrame;
 			} else {
 				outputMovie << processedFrame;
